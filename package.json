@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Yazino12/capstone-project2#readme",
   "keywords": [],
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
