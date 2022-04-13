@@ -56,3 +56,15 @@ nav .right .active {
   font-weight: bold;
   text-decoration: underline;
 }
+
+main {
+  display: flex;
+  min-height: 780px;
+}
+
+footer {
+  display: flex;
+  background-color: #019267;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+  padding: 1em;
+}
