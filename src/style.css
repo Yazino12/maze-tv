@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Saira+Condensed&display=swap');
+
 body {
-  background-color: aqua;
+  font-family: 'Saira Condensed', sans-serif;
+  margin: 0;
+  color: #ececec;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #019267;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+  padding: 1em;
+}
+
+nav .left {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  cursor: pointer;
+}
+
+nav .left .logo-wrapper {
+  padding: 1em 0.5em;
+  border: 2px solid #ececec;
+  border-radius: 50%;
+}
+
+nav .left h1 {
+  font-family: 'Fredoka One', 'cursive', sans-serif;
+  margin: 0;
+}
+
+nav .right {
+  display: flex;
+  gap: 2em;
+}
+
+nav .right .active {
+  font-weight: bold;
+  text-decoration: underline;
 }
