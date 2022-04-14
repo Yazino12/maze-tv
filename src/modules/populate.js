@@ -33,7 +33,7 @@ const displayShows = async () => {
 };
 
 const diplayComments = async () => {
-  // const data = await generate();
+  await generate();
 
   const commentButtons = document.querySelectorAll('.comment');
 
@@ -41,9 +41,7 @@ const diplayComments = async () => {
     button.addEventListener('click', (e) => {
       const currentShow = e.path[1];
       const id = currentShow.getAttribute('id');
-      // const currentShowDetail = data.filter((show) => show.id === id);
       renderPopUp(id);
-      // console.log(currentShow, id, currentShowDetail);
     });
   });
 };
