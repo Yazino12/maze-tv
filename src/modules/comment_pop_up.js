@@ -48,8 +48,10 @@ const constructTvShowInfoDOM = (tvShow, comments) => {
         </div>`;
 
   popUpCtn.innerHTML += showInfoDiv;
+
   const sd = popUpCtn.querySelector('.ctn-icn');
   const commentList = popUpCtn.querySelector('.comment-list');
+
   if (comments.length > 0) {
     comments.forEach((comment) => {
       commentList.innerHTML += `
