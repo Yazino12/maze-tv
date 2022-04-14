@@ -1,5 +1,8 @@
+import { TVMAZE_BASE_URL } from './url_config.js';
+import renderPopUp from './comment_pop_up.js';
+
 const generate = async () => {
-  const requestURL = 'https://api.tvmaze.com/shows';
+  const requestURL = TVMAZE_BASE_URL;
   const request = new Request(requestURL);
 
   const response = await fetch(request);
@@ -30,7 +33,7 @@ const displayShows = async () => {
 };
 
 const diplayComments = async () => {
-  const data = await generate();
+  // const data = await generate();
 
   const commentButtons = document.querySelectorAll('.comment');
 
@@ -38,9 +41,9 @@ const diplayComments = async () => {
     button.addEventListener('click', (e) => {
       const currentShow = e.path[1];
       const id = currentShow.getAttribute('id');
-      const currentShowDetail = data.filter((show) => show.id === id);
-
-      console.log(currentShow, id, currentShowDetail);
+      // const currentShowDetail = data.filter((show) => show.id === id);
+      renderPopUp(id);
+      // console.log(currentShow, id, currentShowDetail);
     });
   });
 };

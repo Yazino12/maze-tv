@@ -1,27 +1,29 @@
-import { TVMAZE_BASE_URL } from './url_config';
+import { TVMAZE_BASE_URL } from './url_config.js';
 
-export default async function getTvShowInfo(id) {
+const getTvShowInfo = async (id) => {
   const response = await fetch(`${TVMAZE_BASE_URL}/${id}`);
   const data = await response.json();
-  console.log(data);
   return data;
-}
+};
 
 const constructTvShowInfoDOM = (tvShow) => {
-  const popUpCtn = document.createElement('div');
-  popUpCtn.classList.add('ctn-tv-info-window');
-  popUpCtn.innerHTML = `
-    <div class="ctn-tv-info-window">
+  const popUpCtn = document.getElementById('ctn-tv-info-window');
+  popUpCtn.classList.add('show');
+  popUpCtn.innerHTML = '';
+  const showInfoDiv = `
         <div class="ctn-tv-info">
+            <div class="ctn-icn">
+            <i class="fa-solid fa-xmark"></i>
+            </div>
             <div class="ctn-img">
                 <img src="${tvShow.image.medium}" alt="tvshow_preview">
             </div>
-            <h3 class="tvshow-name"></h3>
+            <h3 class="tvshow-name">${tvShow.name}</h3>
             <div class="tvshow_info">
-                <h5>Type : <span></span></h5>
-                <h5>Languages : <span></span></h5>
-                <h5>Duration : <span></span></h5>
-                <h5>Genre : <span></span></h5>
+                <h5>Type : <span>${tvShow.type}</span></h5>
+                <h5>Languages : <span>${tvShow.language}</span></h5>
+                <h5>Duration : <span>${tvShow.runtime}</span></h5>
+                <h5>Genre : <span>${tvShow.genres}</span></h5>
             </div>
             <div class="ctn-comment">
                 <div class="ctn-comments-head">
@@ -35,14 +37,21 @@ const constructTvShowInfoDOM = (tvShow) => {
                 <textarea class="comment-area" type="text" name="comment" id="comment" required></textarea>
                 <input class="sub-button" type="submit" value="Comment">
             </form>
-        </div>
-    </div>`;
+        </div>`;
+
+  popUpCtn.innerHTML += showInfoDiv;
+  const sd = popUpCtn.querySelector('.ctn-icn');
+  sd.addEventListener('click', () => {
+    popUpCtn.classList.remove('show');
+  });
 };
 
 const renderPopUp = (id) => {
-  constructTvShowInfoDOM(getTvShowInfo(id));
+  getTvShowInfo(id).then((tvShow) => constructTvShowInfoDOM(tvShow));
 };
 
-const createComment = (id) => {
-  // send the comment to the server
-};
+// const createComment = (id) => {
+// send the comment to the server
+// };
+
+export default renderPopUp;
