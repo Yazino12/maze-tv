@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Saira+Condensed&display=swap');
 
+:root{
+  --popup-text-color: rgb(34, 33, 33);
+}
+
 body {
   font-family: 'Saira Condensed', sans-serif;
   margin: 0;
@@ -67,4 +71,61 @@ footer {
   background-color: #019267;
   box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
   padding: 1em;
+}
+
+.ctn-tv-info-window {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--popup-text-color);
+  background-color: rgba(0, 0, 0, 0.282);
+}
+
+.ctn-tv-info-window .show{
+  display: none;
+}
+
+.ctn-tv-info {
+  width: 50%;
+  height: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
+.ctn-comments-head{
+  align-content: center;
+}
+
+.comments-head{
+  text-align: center;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.tvshow_info {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.name-area {
+  width: 10rem;
+}
+
+.comment-area {
+  width: 20rem;
+  height: 5rem;
+}
+
+.sub-button {
+  width: 10rem;
+  height: 2rem;
 }
