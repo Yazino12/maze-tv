@@ -14,6 +14,15 @@ const getComments = async (id) => {
   return data;
 };
 
+const displayComments = (comments, container) => {
+  if (comments.length > 0) {
+    comments.forEach((comment) => {
+      container.innerHTML += `
+      <h5>${comment.creation_date} &nbsp; &nbsp; ${comment.username} &nbsp; :  &nbsp; ${comment.comment}</h5>`;
+    });
+  }
+};
+
 const constructTvShowInfoDOM = (tvShow, comments) => {
   const popUpCtn = document.getElementById('ctn-tv-info-window');
   popUpCtn.classList.add('show');
@@ -52,12 +61,7 @@ const constructTvShowInfoDOM = (tvShow, comments) => {
   const sd = popUpCtn.querySelector('.ctn-icn');
   const commentList = popUpCtn.querySelector('.comment-list');
 
-  if (comments.length > 0) {
-    comments.forEach((comment) => {
-      commentList.innerHTML += `
-      <h5>${comment.creation_date} &nbsp; &nbsp; ${comment.username} &nbsp; :  &nbsp; ${comment.comment}</h5>`;
-    });
-  }
+  displayComments(comments, commentList);
 
   sd.addEventListener('click', () => {
     popUpCtn.classList.remove('show');
