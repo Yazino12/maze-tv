@@ -1,8 +1,12 @@
 import './style.css';
-import DisplayShows from './modules/populate.js';
+import {
+  displayShows as DisplayShows,
+  diplayComments as DisplayComments,
+} from './modules/populate.js';
 
 const render = () => {
   DisplayShows();
+  DisplayComments();
 };
 
 render();

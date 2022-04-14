@@ -15,7 +15,7 @@ const displayShows = async () => {
 
   data.forEach((show) => {
     const showCard = `
-      <div class="showCard">
+      <div id=${show.id} class="showCard">
       <img src=${show.image.medium} alt="TVshow thumbnail"/>
       <div class="title">
       <h2>${show.name}</h2>
@@ -29,4 +29,20 @@ const displayShows = async () => {
   });
 };
 
-export default displayShows;
+const diplayComments = async () => {
+  const data = await generate();
+
+  const commentButtons = document.querySelectorAll('.comment');
+
+  commentButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const currentShow = e.path[1];
+      const id = currentShow.getAttribute('id');
+      const currentShowDetail = data.filter((show) => show.id == id);
+
+      console.log(currentShow, id, currentShowDetail);
+    });
+  });
+};
+
+export { displayShows, diplayComments };
