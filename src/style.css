@@ -16,7 +16,9 @@ p {
   margin: 0;
 }
 
-a {
+a,
+button,
+i {
   cursor: pointer;
 }
 
@@ -64,6 +66,47 @@ nav .right .active {
 main {
   display: flex;
   min-height: 780px;
+}
+
+main .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  width: 90%;
+  margin: 3em auto;
+}
+
+main .container .showCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: #00c897;
+}
+
+main .container .showCard .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em;
+}
+
+main .container .showCard .title h2 {
+  line-height: 1em;
+  width: 200px;
+}
+
+main .container .showCard .comment {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #019267;
+  color: #ececec;
+  border: none;
+  width: 100px;
+  padding: 0.5em;
+  margin: auto auto 1em auto;
 }
 
 footer {

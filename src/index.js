@@ -1,4 +1,12 @@
 import './style.css';
-import getTvShowInfo from './modules/comment_pop_up';
+import {
+  displayShows as DisplayShows,
+  diplayComments as DisplayComments,
+} from './modules/populate.js';
 
-getTvShowInfo(1);
+const render = () => {
+  DisplayShows();
+  DisplayComments();
+};
+
+render();
