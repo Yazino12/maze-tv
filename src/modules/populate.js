@@ -41,26 +41,6 @@ const generate = async () => {
   return result;
 };
 
-const displayLikes = () => {
-  const likeButtons = document.querySelectorAll('.like-button');
-
-  likeButtons.forEach((button) => {
-    button.addEventListener('click', async (e) => {
-      const currentShow = e.path[3];
-      const id = currentShow.getAttribute('id');
-      await addLike(id);
-
-      const updatLikes = currentShow.children[1].children[1];
-      const likes = await getLike();
-      const like = likes
-        .filter((like) => typeof like.item_id === 'string')
-        .filter((like) => like.item_id === `${id}`)[0];
-      updatLikes.innerHTML = `<i class="fa-regular fa-heart like-button"></i><span class="likes">${like.likes} likes</span>`;
-      console.log('updated');
-    });
-  });
-};
-
 const displayShows = async () => {
   const data = await generate();
   const likes = await getLike();
@@ -89,7 +69,25 @@ const displayShows = async () => {
 
     container.innerHTML += showCard;
   });
-  displayLikes();
+};
+
+const displayLikes = () => {
+  const likeButtons = document.querySelectorAll('.like-button');
+
+  likeButtons.forEach((button) => {
+    button.addEventListener('click', async (e) => {
+      const currentShow = e.path[3];
+      const id = currentShow.getAttribute('id');
+      await addLike(id);
+
+      const updatLikes = currentShow.children[1].children[1].children[1];
+      const likes = await getLike();
+      const like = likes
+        .filter((like) => typeof like.item_id === 'string')
+        .filter((like) => like.item_id === `${id}`)[0];
+      updatLikes.textContent = `${like.likes} Likes`;
+    });
+  });
 };
 
 const diplayComments = async () => {
@@ -106,4 +104,4 @@ const diplayComments = async () => {
   });
 };
 
-export { displayShows, diplayComments };
+export { displayShows, diplayComments, displayLikes };
