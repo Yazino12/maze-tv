@@ -53,22 +53,28 @@ const createComment = async (id, userName, message) => {
 
 const constructTvShowInfoDOM = (tvShow, comments) => {
   const popUpCtn = document.getElementById('ctn-tv-info-window');
+  const main = document.querySelector('main');
+  const nav = document.querySelector('nav');
+  const body = document.querySelector('body');
+  body.style.overflow = 'hidden';
+  main.classList.add('blur');
+  nav.classList.add('blur');
   popUpCtn.classList.add('show');
   popUpCtn.innerHTML = '';
   const showInfoDiv = `
         <div class="ctn-tv-info">
             <div class="ctn-icn">
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark fa-xl"></i>
             </div>
             <div class="ctn-img">
-                <img src="${tvShow.image.original}" alt="tvshow_preview">
+                <img class="popup-img" src="${tvShow.image.original}" alt="tvshow_preview">
             </div>
             <h3 class="tvshow-name">${tvShow.name}</h3>
             <div class="tvshow_info">
-                <h5>Type : <span>${tvShow.type}</span></h5>
-                <h5>Languages : <span>${tvShow.language}</span></h5>
-                <h5>Duration : <span>${tvShow.runtime}</span></h5>
-                <h5>Genre : <span>${tvShow.genres}</span></h5>
+                <h5 class="tvshow_item">Type : <span>${tvShow.type}</span></h5>
+                <h5 class="tvshow_item">Languages : <span>${tvShow.language}</span></h5>
+                <h5 class="tvshow_item">Duration : <span>${tvShow.runtime}</span></h5>
+                <h5 class="tvshow_item">Genre : <span>${tvShow.genres}</span></h5>
             </div>
             <div class="ctn-comment">
                 <div class="ctn-comments-head">
@@ -76,7 +82,7 @@ const constructTvShowInfoDOM = (tvShow, comments) => {
                 </div>
                 <div class="comment-list"></div>
             </div>
-            <h3>Add a comment</h3>
+            <h3 class="add-comment">Add a comment</h3>
             <form class="comment-form" action="${CAP_BASE_URL}/${APP_KEY}/comments" method="post">
                 <input class="name-area" type="text" name="name" id="name" required>
                 <textarea class="comment-area" type="text" name="comment" id="comment" required></textarea>
@@ -112,6 +118,9 @@ const constructTvShowInfoDOM = (tvShow, comments) => {
   displayComments(comments, commentList);
 
   sd.addEventListener('click', () => {
+    body.style.overflow = 'auto';
+    main.classList.remove('blur');
+    nav.classList.remove('blur');
     popUpCtn.classList.remove('show');
   });
 };

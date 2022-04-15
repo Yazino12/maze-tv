@@ -8,10 +8,14 @@ body {
   font-family: 'Saira Condensed', sans-serif;
   margin: 0;
   color: #ececec;
+  min-width: 720px;
 }
 
 h1,
 h2,
+h3,
+h4,
+h5,
 p {
   margin: 0;
 }
@@ -31,7 +35,8 @@ nav {
   justify-content: space-around;
   align-items: center;
   background-color: #019267;
-  box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+  background-image: url('https://www.transparenttextures.com/patterns/my-little-plaid-dark.png');
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   padding: 1em;
 }
 
@@ -40,6 +45,11 @@ nav .left {
   gap: 0.5em;
   align-items: center;
   cursor: pointer;
+  transition: transform 2s;
+}
+
+nav .left:hover {
+  transform: scale(1.1);
 }
 
 nav .left .logo-wrapper {
@@ -55,7 +65,7 @@ nav .left h1 {
 
 nav .right {
   display: flex;
-  gap: 2em;
+  gap: 3em;
 }
 
 nav .right .active {
@@ -63,9 +73,24 @@ nav .right .active {
   text-decoration: underline;
 }
 
+nav .right li a {
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  transition: all 500ms;
+}
+
+nav .right li a:hover {
+  background-color: #00c897;
+  padding: 0.1em 0.5em;
+  border-radius: 0.5em;
+  margin: -0.5em;
+}
+
 main {
   display: flex;
   min-height: 780px;
+  background-color: #019267;
+  background-image: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
 }
 
 main .container {
@@ -83,6 +108,20 @@ main .container .showCard {
   flex-direction: column;
   gap: 0.5em;
   background-color: #00c897;
+  background-image: url('https://www.transparenttextures.com/patterns/my-little-plaid-dark.png');
+  border: 3px solid #00c897;
+  border-radius: 1em 1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+
+main .container .showCard img {
+  border-radius: 1em 1em 0 0;
+  transition: transform 1s, border-radius 2s;
+}
+
+main .container .showCard img:hover {
+  transform: scale(1.08);
+  border-radius: 0;
 }
 
 main .container .showCard .title {
@@ -115,12 +154,19 @@ main .container .showCard .comment {
   width: 100px;
   padding: 0.5em;
   margin: auto auto 1em auto;
+  border-radius: 1em;
+}
+
+main .container .showCard .comment:hover {
+  background-color: #ececec;
+  color: #019267;
 }
 
 footer {
   display: flex;
   background-color: #019267;
-  box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+  background-image: url('https://www.transparenttextures.com/patterns/my-little-plaid-dark.png');
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   padding: 1em;
 }
 
@@ -135,74 +181,156 @@ footer {
   height: 100%;
   color: var(--popup-text-color);
   background-color: rgba(0, 0, 0, 0.282);
+  z-index: 1;
 }
 
 .ctn-tv-info {
-  width: 50%;
-  height: 80%;
-  margin: auto;
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 10px;
-  overflow-y: scroll;
-}
-
-.ctn-img img {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  border-radius: 5px;
-}
-
-.tvshow-name {
-  text-align: center;
-}
-
-.ctn-comments-head {
-  align-content: center;
-}
-
-.comments-head {
-  text-align: center;
-}
-
-.comment-form {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  width: 40%;
+  height: 90%;
+  margin: auto;
+  margin-top: 2rem;
+  border: 3px solid #00c897;
+  background-color: #019267;
+  border-radius: 10px;
+  overflow-y: scroll;
+  color: #ececec;
+  text-align: center;
 }
 
-.tvshow_info {
-  display: grid;
-  grid-template-columns: 50% 50%;
+/* width */
+.ctn-tv-info::-webkit-scrollbar {
+  width: 1em;
 }
 
-.tvshow_info h5 span {
-  color: rgb(127, 159, 159);
+/* Handle */
+.ctn-tv-info::-webkit-scrollbar-thumb {
+  background: #b9f8d3;
+  border-radius: 1em;
 }
 
-.comment-list h5 {
-  color: rgb(127, 159, 159);
+/* Handle on hover */
+.ctn-tv-info::-webkit-scrollbar-thumb:hover {
+  background: #00c897;
 }
 
 .ctn-icn {
   display: flex;
   flex-direction: row-reverse;
+  padding: 1em;
+  background-image: url('https://www.transparenttextures.com/patterns/my-little-plaid-dark.png');
+}
+
+.ctn-img {
+  background-image: url('https://www.transparenttextures.com/patterns/my-little-plaid-dark.png');
+}
+
+.ctn-img .popup-img {
+  display: block;
+  border-radius: 5px;
+  height: 500px;
+  width: 80%;
+  margin: auto;
+}
+
+.tvshow-name {
+  font-size: 2rem;
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.1em;
+}
+
+.tvshow_info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tvshow_item {
+  display: flex;
+  justify-content: center;
+  flex: 40%;
+}
+
+.tvshow_info h5 span {
+  letter-spacing: 0.1em;
+  color: #d1d1d1;
+  margin-left: 0.5em;
+  background-color: #00c897;
+  padding: 0 1em;
+  border-radius: 1em;
+}
+
+.ctn-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.comments-head,
+.add-comment {
+  font-size: 1.3rem;
+  display: inline-block;
+  letter-spacing: 0.1em;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-list h5 {
+  color: #d1d1d1;
+}
+
+.add-comment {
+  margin-bottom: 0.5em;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 0.5em;
+  row-gap: 1em;
 }
 
 .name-area {
-  width: 10rem;
+  border: 2px solid #00c897;
+  border-radius: 1em;
+  width: 10em;
+}
+
+.blur {
+  filter: blur(4px);
 }
 
 .comment-area {
-  width: 20rem;
-  height: 5rem;
+  border: 2px solid #00c897;
+  border-radius: 1em;
+  width: 70%;
+  height: 5em;
 }
 
 .sub-button {
-  width: 10rem;
-  height: 2rem;
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #00c897;
+  color: #ececec;
+  border: none;
+  width: 100px;
+  padding: 0.5em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.sub-button:hover {
+  background-color: #ececec;
+  color: #00c897;
 }
 
 .progres-text {

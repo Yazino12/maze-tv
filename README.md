@@ -8,13 +8,17 @@
   Demo 📝
 </h2>
 
-|                                                      **Interface 1**                                                       |                                                      **Interface 2**                                                       |
-| :------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/Yazino12/capstone-project2/blob/dev/src/assets/demo1.png?raw=true" width="1200" height="250"> | <img src="https://github.com/Yazino12/capstone-project2/blob/dev/src/assets/demo2.png?raw=true" width="1200" height="250"> |
+|                                                       **Interface 1**                                                       |
+| :-------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://github.com/Yazino12/capstone-project2/blob/dev/src/assets/demo1.png?raw=true" width="1000" height="500"> |
+
+|                                                       **Interface 2**                                                       |
+| :-------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://github.com/Yazino12/capstone-project2/blob/dev/src/assets/demo2.png?raw=true" width="1000" height="500"> |
 
 ## Built With
 
-- HTML, CSS, Javascript, Webpack.
+- HTML, CSS, Javascript, Webpack, Jest, ES6.
 
 ## Getting Started
 
