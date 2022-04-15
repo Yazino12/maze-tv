@@ -16,7 +16,7 @@ const constructTvShowInfoDOM = (tvShow) => {
             <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="ctn-img">
-                <img src="${tvShow.image.medium}" alt="tvshow_preview">
+                <img src="${tvShow.image.original}" alt="tvshow_preview">
             </div>
             <h3 class="tvshow-name">${tvShow.name}</h3>
             <div class="tvshow_info">
