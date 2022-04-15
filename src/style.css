@@ -204,3 +204,7 @@ footer {
   width: 10rem;
   height: 2rem;
 }
+
+.progres-text{
+  display: none;
+}
