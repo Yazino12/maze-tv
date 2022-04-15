@@ -4,9 +4,9 @@ import {
   diplayComments as DisplayComments,
 } from './modules/populate.js';
 
-const render = () => {
-  DisplayShows();
-  DisplayComments();
+const render = async () => {
+  await DisplayShows();
+  await DisplayComments();
 };
 
 render();
