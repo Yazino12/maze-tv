@@ -23,6 +23,23 @@ const displayComments = (comments, container) => {
   }
 };
 
+const createComment = async (id, userName, message) => {
+  const userPost = {
+    item_id: id,
+    username: userName,
+    comment: message,
+  };
+  const response = await fetch(`${CAP_BASE_URL}/${APP_KEY}/comments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userPost),
+  });
+  const data = await response.json();
+  return data;
+};
+
 const constructTvShowInfoDOM = (tvShow, comments) => {
   const popUpCtn = document.getElementById('ctn-tv-info-window');
   popUpCtn.classList.add('show');
@@ -49,10 +66,10 @@ const constructTvShowInfoDOM = (tvShow, comments) => {
                 <div class="comment-list"></div>
             </div>
             <h3>Add a comment</h3>
-            <form class="comment-form" action="" method="post">
-                <input class="name-area" type="text" name="name" id="name">
+            <form class="comment-form" action="${CAP_BASE_URL}/${APP_KEY}/comments" method="post">
+                <input class="name-area" type="text" name="name" id="name" required>
                 <textarea class="comment-area" type="text" name="comment" id="comment" required></textarea>
-                <input class="sub-button" type="submit" value="Comment">
+                <input class="sub-button" type="submit" name="Comment">
             </form>
         </div>`;
 
@@ -60,6 +77,17 @@ const constructTvShowInfoDOM = (tvShow, comments) => {
 
   const sd = popUpCtn.querySelector('.ctn-icn');
   const commentList = popUpCtn.querySelector('.comment-list');
+
+  const nameField = popUpCtn.querySelector('.name-area');
+  const commentField = popUpCtn.querySelector('.comment-area');
+  const submitButton = popUpCtn.querySelector('form');
+
+  submitButton.addEventListener('submit', (e) => {
+    e.preventDefault();
+    createComment(tvShow.id, nameField.value, commentField.value);
+    nameField.value = '';
+    commentField.value = '';
+  });
 
   displayComments(comments, commentList);
 
