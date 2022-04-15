@@ -2,7 +2,6 @@ import { TVMAZE_BASE_URL, INVOLVEMENT_BASE_API } from './url_config.js';
 import renderPopUp from './comment_pop_up.js';
 
 const appID = 'lwqk22PZhw0HzOrv1OVb';
-let data = [];
 
 // ADD LIKE
 const addLike = async (showID) => {
@@ -40,22 +39,23 @@ const generate = async () => {
   return result;
 };
 
-const countNumberOfItems = () => data.length;
+const countNumberOfItems = (newData) => newData.length;
 
 // DISPLAY SHOW COUNT ON HOME PAGE
-const showHomeCounter = () => {
+const showHomeCounter = (newData) => {
   const homeCounter = document.querySelector('.home-counter');
-  homeCounter.textContent = countNumberOfItems();
+  homeCounter.textContent = `(${countNumberOfItems(newData)})`;
 };
 
 const displayShows = async () => {
-  data = await generate();
+  const data = await generate();
   const likes = await getLike();
 
   const container = document.querySelector('.container');
   container.innerHTML = '';
+  const newData = data.filter((show) => show.id < 22);
 
-  data.forEach((show) => {
+  newData.forEach((show) => {
     const like = likes
       .filter((like) => typeof like.item_id === 'string')
       .filter((like) => like.item_id === `${show.id}`)[0];
@@ -65,7 +65,9 @@ const displayShows = async () => {
       <div class="title">
       <h2>${show.name}</h2>
       <div class="update-likes">
-      <i class="fa-regular fa-heart like-button"></i><span class="likes">${like ? like.likes : 0} likes</span>
+      <i class="fa-regular fa-heart like-button"></i><span class="likes">${
+  like ? like.likes : 0
+} likes</span>
       </div>
       </div>
       <button class="comment">Comments</button>
@@ -74,7 +76,7 @@ const displayShows = async () => {
 
     container.innerHTML += showCard;
   });
-  showHomeCounter(data);
+  showHomeCounter(newData);
 };
 
 const displayLikes = () => {
