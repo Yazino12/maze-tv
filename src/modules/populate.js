@@ -2,6 +2,7 @@ import { TVMAZE_BASE_URL, INVOLVEMENT_BASE_API } from './url_config.js';
 import renderPopUp from './comment_pop_up.js';
 
 const appID = 'lwqk22PZhw0HzOrv1OVb';
+let data = [];
 
 // ADD LIKE
 const addLike = async (showID) => {
@@ -39,15 +40,16 @@ const generate = async () => {
   return result;
 };
 
+const countNumberOfItems = () => data.length;
+
 // DISPLAY SHOW COUNT ON HOME PAGE
 const showHomeCounter = () => {
   const homeCounter = document.querySelector('.home-counter');
-  const container = document.querySelector('.container');
-  homeCounter.textContent = container.children.length;
+  homeCounter.textContent = countNumberOfItems();
 };
 
 const displayShows = async () => {
-  const data = await generate();
+  data = await generate();
   const likes = await getLike();
 
   const container = document.querySelector('.container');
@@ -63,9 +65,7 @@ const displayShows = async () => {
       <div class="title">
       <h2>${show.name}</h2>
       <div class="update-likes">
-      <i class="fa-regular fa-heart like-button"></i><span class="likes">${
-  like ? like.likes : 0
-} likes</span>
+      <i class="fa-regular fa-heart like-button"></i><span class="likes">${like ? like.likes : 0} likes</span>
       </div>
       </div>
       <button class="comment">Comments</button>
@@ -74,7 +74,7 @@ const displayShows = async () => {
 
     container.innerHTML += showCard;
   });
-  showHomeCounter();
+  showHomeCounter(data);
 };
 
 const displayLikes = () => {
