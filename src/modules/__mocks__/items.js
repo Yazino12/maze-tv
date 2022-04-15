@@ -1,7 +1,6 @@
-const showHomeCounter = () => {
-  const homeCounter = document.querySelector('.home-counter');
-  const container = document.querySelector('.container');
-  homeCounter.textContent = container.children.length;
-};
+let data = [];
 
-export default showHomeCounter;
+export const countNumberOfItems = () => data.length;
+export const setItems = (items) => {
+  data = items;
+};
