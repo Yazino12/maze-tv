@@ -182,6 +182,10 @@ footer {
   color: rgb(127, 159, 159);
 }
 
+.comment-list h5 {
+  color: rgb(127, 159, 159);
+}
+
 .ctn-icn {
   display: flex;
   flex-direction: row-reverse;
