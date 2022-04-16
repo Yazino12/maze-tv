@@ -41,5 +41,6 @@
   },
   "dependencies": {
     "gh-pages": "^3.2.3"
-  }
+  },
+  "main": "webpack.config.js"
 }
