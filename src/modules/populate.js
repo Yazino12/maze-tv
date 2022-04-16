@@ -1,7 +1,9 @@
-import { TVMAZE_BASE_URL, INVOLVEMENT_BASE_API } from './url_config.js';
+import {
+  TVMAZE_BASE_URL,
+  CAP_BASE_URL as INVOLVEMENT_BASE_API,
+  APP_KEY as appID,
+} from './url_config.js';
 import renderPopUp from './comment_pop_up.js';
-
-const appID = 'lwqk22PZhw0HzOrv1OVb';
 
 // ADD LIKE
 const addLike = async (showID) => {
@@ -14,13 +16,13 @@ const addLike = async (showID) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   };
-  const response = await fetch(`${INVOLVEMENT_BASE_API}${appID}/likes/`, data);
+  const response = await fetch(`${INVOLVEMENT_BASE_API}/${appID}/likes/`, data);
   return response;
 };
 
 // GET LIKE
 const getLike = async () => {
-  const requestURL = `${INVOLVEMENT_BASE_API}${appID}/likes/`;
+  const requestURL = `${INVOLVEMENT_BASE_API}/${appID}/likes/`;
   const request = new Request(requestURL);
 
   const response = await fetch(request);
