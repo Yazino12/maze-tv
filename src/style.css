@@ -332,3 +332,7 @@ footer {
   background-color: #ececec;
   color: #00c897;
 }
+
+.progres-text {
+  display: none;
+}
