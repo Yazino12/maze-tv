@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Capstone Project 2
+# Maze TV
 
-> TVMAZE API-based webapp, receives TV show episodes with all data about that TV show. The Webapp has two interfaces: A home page, showing a list of Tv show episodes you can like. And a popup window with more data about the TV show that you can comment on.
+> Maze TV API-based webapp, receives TV show episodes with all data about that TV show. The Webapp has two interfaces: A home page, showing a list of Tv show episodes you can like. And a popup window with more data about the TV show that you can comment on.
 
 <h2 align="center">
   Demo 📝
@@ -10,11 +10,11 @@
 
 |                                                       **Interface 1**                                                       |
 | :-------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/Yazino12/capstone-project2/blob/dev/src/assets/demo1.png?raw=true" width="1000" height="500"> |
+| <img src="https://github.com/Yazino12/maze-tv/blob/dev/src/assets/demo1.png?raw=true" width="1000" height="500"> |
 
 |                                                       **Interface 2**                                                       |
 | :-------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/Yazino12/capstone-project2/blob/dev/src/assets/demo2.png?raw=true" width="1000" height="500"> |
+| <img src="https://github.com/Yazino12/maze-tv/blob/dev/src/assets/demo2.png?raw=true" width="1000" height="500"> |
 
 ## Built With
 
@@ -26,8 +26,8 @@ To get a local copy up and running follow these setup steps.
 
 **Setup**
 
-- Open terminal and clone the project: `git clone https://github.com/Yazino12/capstone-project2.git`
-- cd into the directory `capstone-project2`
+- Open terminal and clone the project: `git clone https://github.com/Yazino12/maze-tv.git`
+- cd into the directory `maze-tv`
 
 **Prerequisites**
 
@@ -38,11 +38,11 @@ To get a local copy up and running follow these setup steps.
 - On your terminal run : `npm i`
 - For Webpack to build and bundle the app files : `npm run build`
 - For Webpack to start the development server : `npm run start`
-- In case you run into any errors please raise an [issue](https://github.com/Yazino12/capstone-project2/issues).
+- In case you run into any errors please raise an [issue](https://github.com/Yazino12/maze-tv/issues).
 
 ## Live
 
-- Link here: [Live](https://yazino12.github.io/capstone-project2/)
+- Link here: [Live](https://yazino12.github.io/maze-tv/)
 
 ## Authors
 
